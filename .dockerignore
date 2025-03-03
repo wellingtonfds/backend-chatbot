@@ -1,0 +1,9 @@
+node_modules
+dist
+.gitiignore
+.prettierrc
+docker-compose.yml
+Readme.md
+package-lock.json
+yarn.lock
+docker

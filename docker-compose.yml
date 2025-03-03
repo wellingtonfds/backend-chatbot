@@ -1,0 +1,42 @@
+networks:
+  my_network:
+    driver: bridge
+services:
+  db:
+    image: postgres:latest
+    container_name: chatbot-db
+    restart: always
+    environment:
+      POSTGRES_DB: ${PG_DATABASE}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    hostname: ${PG_HOST}
+    ports:
+      - '${PG_PORT}:${PG_PORT}'
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'pg_isready -U ${PG_USER} -d ${PG_DATABASE} -h ${PG_HOST} -p ${PG_PORT}',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  evolution-api:
+    container_name: evolution_api
+    image: atendai/evolution-api:latest
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - ./docker/evolution:/evolution/instances
+  redis:
+    image: redis:latest
+    container_name: chat-redis
+    restart: always
+    ports:
+      - '6379:6379'
