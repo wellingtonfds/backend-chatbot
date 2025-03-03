@@ -1,5 +1,5 @@
 # Backend Chat Bot
-
+[![Test Coverage](https://github.com/wellingtonfds/backend-chatbot/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/wellingtonfds/backend-chatbot/actions/workflows/test-coverage.yml)
 
 
 This is a general-purpose chatbot for emerging businesses, built using Node.js, TypeScript, and NestJS. It leverages Prisma.js for database interactions, LangChain for natural language processing, and Kafka for messaging.
