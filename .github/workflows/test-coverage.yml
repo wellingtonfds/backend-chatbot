@@ -11,7 +11,12 @@ on:
 jobs:
   test-coverage:
     runs-on: ubuntu-latest
-
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgres://user:password@localhost:5432/test_db
+      REDIS_URL: redis://localhost:6379
+      API_KEY: your-api-key-here 
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
