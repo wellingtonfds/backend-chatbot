@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: test
-      DATABASE_URL: postgres://user:password@localhost:5432/test_db
-      REDIS_URL: redis://localhost:6379
-      API_KEY: your-api-key-here 
+      REDIS_HOST: redis://localhost:6379
       
     steps:
       - name: Checkout repository
