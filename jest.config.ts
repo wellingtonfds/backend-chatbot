@@ -10,7 +10,12 @@ const config: Config = {
   roots: ['src'],
   testRegex: '.*\\.spec\\.ts$',
   transform: { '^.+\\.(t|j)s$': 'ts-jest' },
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.entity.ts', '!src/main.ts'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.entity.ts',
+    '!src/main.ts',
+    '!src/**/*.config.ts',
+  ],
   coverageDirectory: '../coverage',
   coverageReporters: ['lcov', 'text'],
   testEnvironment: 'node',
